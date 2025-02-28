@@ -1,61 +1,45 @@
-# API for the interview task for frontend developers
+## Deploy JSON Server to Vercel
 
-This repository contains a server with a JSON file that plays the role of a database in the [interview task for frontend developers](https://development.kameleoon.net/oivanov/frontend-interview-task).
+A template to deploy [JSON Server](https://github.com/typicode/json-server) to [Vercel](https://vercel.com), allow you to run fake REST API online!
 
-You need to create your own local copy and work with it via the API.
+Demo from this repository: 
 
-### How to work
+1. https://json-server-in.vercel.app
+2. https://json-server-in.vercel.app/api/posts
 
-Clone a repository
-```bash
-git clone git@development.kameleoon.net:oivanov/frontend-interview-task-api.git
-```
+![Powered by Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)
 
-Install dependencies
-```bash
-npm install
-```
+### How to use
 
-Run server
-```bash
-npm start
-```
+1. Click "**Use this template**" or clone this repository.
+2. Update or use the default [`db.json`](./db.json) in the repository.
+3. Sign Up or login into [Vercel](https://vercel.com).
+4. From the Vercel dashboard, click "**+ New Project**" then "**Import**" your repository.
+5. In the "**Configure Project**" screen, leave everything default and click "**Deploy**".
+6. Wait until deployment is done, and your own JSON server is ready to serve!
 
-### API
+## Default `db.json`
 
-```
-GET     /sites                Get a list of sites
-GET     /sites/[id]           Get a site by id
-GET     /tests                Get a list of tests
-GET     /tests/[id]           Get a test by id
-```
-
-### Data types
-
-```typescript
-enum Type {
-  CLASSIC = "CLASSIC",
-  SERVER_SIDE = "SERVER_SIDE",
-  MVT = "MVT"
-}
-
-enum Status {
-  DRAFT = "DRAFT",
-  ONLINE = "ONLINE",
-  PAUSED = "PAUSED",
-  STOPPED = "STOPPED",
-}
-
-interface Site {
-  id: number;
-  url: string;
-}
-
-interface Test {
-  id: number;
-  name: string;
-  type: Type;
-  status: Status;
-  siteId: number;
+```json
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
 }
 ```
+
+## Enable write operations
+
+By default, only GET operation is allowed, thanks to the contribution by [@VicAv99](https://www.github.com/VicAv99) at [#6](https://github.com/kitloong/json-server-vercel/issues/6), we can now enable write operations as well.
+
+You can find the example code in [`api/server.js`](./api/server.js).
+
+## Reference
+
+1. https://github.com/typicode/json-server
+2. https://vercel.com
+3. https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel

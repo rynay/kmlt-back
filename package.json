@@ -1,13 +1,12 @@
 {
-  "name": "frontend-interview-task-api",
+  "name": "json-server-vercel",
   "version": "1.0.0",
-  "description": "API for the interview task for frontend developers",
-  "main": "index.js",
+  "description": "Deploy JSON Server to Vercel",
+  "main": "api/server.js",
   "scripts": {
-    "start": "json-server -c ./config.json -w ./db.json"
+    "start": "node api/server.js"
   },
-  "license": "ISC",
   "dependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.17.4"
   }
 }
